@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Calificaciones.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#F5F5F7"
+    Loaded="OnPageLoaded">
+
+    <Grid RowDefinitions="Auto,*">
+        <Border
+            Grid.Row="0"
+            Padding="32,40"
+            Background="#5C2D91"
+            StrokeThickness="0">
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    Text="Instituto Sudamericano"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="White" />
+                <Label
+                    Text="Sistema de Calificaciones"
+                    FontSize="16"
+                    TextColor="#E8DFF4" />
+            </VerticalStackLayout>
+        </Border>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
+                Padding="24,28"
+                Spacing="20"
+                VerticalOptions="Center">
+
+                <Border
+                    x:Name="loginCard"
+                    Padding="20"
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 22">
+                    <Border.Shadow>
+                        <Shadow Brush="#30000000" Offset="0,6" Radius="14" Opacity="0.18" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="18">
+                        <Label
+                            Text="Iniciar sesión"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="#1E1E1E"
+                            HorizontalOptions="Center" />
+
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Usuario" FontSize="13" FontAttributes="Bold" TextColor="#5C2D91" />
+                            <Frame Padding="0" BorderColor="#D9D9E3" CornerRadius="12" HasShadow="False">
+                                <Entry
+                                    x:Name="userEntry"
+                                    Placeholder="Ingrese su usuario"
+                                    TextColor="#1E1E1E"
+                                    PlaceholderColor="#8A8A9F"
+                                    BackgroundColor="Transparent"
+                                    Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Contraseña" FontSize="13" FontAttributes="Bold" TextColor="#5C2D91" />
+                            <Frame Padding="0" BorderColor="#D9D9E3" CornerRadius="12" HasShadow="False">
+                                <Entry
+                                    x:Name="passwordEntry"
+                                    Placeholder="Ingrese su contraseña"
+                                    IsPassword="True"
+                                    TextColor="#1E1E1E"
+                                    PlaceholderColor="#8A8A9F"
+                                    BackgroundColor="Transparent"
+                                    Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <Button
+                            x:Name="loginButton"
+                            Text="Iniciar Sesión"
+                            BackgroundColor="#5C2D91"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="16"
+                            HeightRequest="52"
+                            Clicked="OnLoginClicked" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

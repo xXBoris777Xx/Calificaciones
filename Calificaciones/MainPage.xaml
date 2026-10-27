@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Calificaciones.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#F5F5F7"
+    Title="Sistema de Calificaciones"
+    Loaded="OnPageLoaded">
+
+    <ContentPage.Resources>
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Padding" Value="18" />
+            <Setter Property="StrokeThickness" Value="0" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 18" />
+            <Setter Property="BackgroundColor" Value="#F8F8FB" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="#30000000" Offset="0,4" Radius="10" Opacity="0.15" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="FieldLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#5C2D91" />
+            <Setter Property="Margin" Value="0,0,0,6" />
+        </Style>
+
+        <Style x:Key="ValueFrameStyle" TargetType="Frame">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderColor" Value="#D8D8E4" />
+            <Setter Property="HasShadow" Value="False" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*" Padding="0,0,0,20">
+        <Border
+            Grid.Row="0"
+            Padding="24,28"
+            Background="#5C2D91"
+            StrokeThickness="0">
+            <VerticalStackLayout Spacing="4">
+                <Label
+                    x:Name="welcomeLabel"
+                    Text="Bienvenido"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="White" />
+                <Label
+                    Text="Registro de calificaciones"
+                    FontSize="14"
+                    TextColor="#E8DFF4" />
+            </VerticalStackLayout>
+        </Border>
+
+        <ScrollView Grid.Row="1" Padding="20,18">
+            <VerticalStackLayout Spacing="18">
+                <Border x:Name="studentCard" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="14">
+                        <Label Text="Datos del estudiante" FontSize="18" FontAttributes="Bold" TextColor="#1E1E1E" />
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Estudiante" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <Picker x:Name="studentPicker" Title="Selecciona un estudiante" TextColor="#1E1E1E" BackgroundColor="Transparent" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Fecha" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <DatePicker x:Name="datePicker" Date="2025-01-15" TextColor="#1E1E1E" />
+                            </Frame>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="partialOneCard" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Parcial 1" FontSize="18" FontAttributes="Bold" TextColor="#1E1E1E" />
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Nota Seguimiento 1" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <Entry x:Name="seguimiento1Entry" Keyboard="Numeric" Placeholder="0.1 - 10" TextColor="#1E1E1E" BackgroundColor="Transparent" Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Examen 1" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <Entry x:Name="examen1Entry" Keyboard="Numeric" Placeholder="0.1 - 10" TextColor="#1E1E1E" BackgroundColor="Transparent" Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <Label Text="Nota Parcial 1 = (Seguimiento1 * 0.3) + (Examen1 * 0.2)" FontSize="12" TextColor="#4B4B4F" />
+                        <Label x:Name="partialOneResultLabel" Text="0.00" FontSize="18" FontAttributes="Bold" TextColor="#5C2D91" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="partialTwoCard" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Parcial 2" FontSize="18" FontAttributes="Bold" TextColor="#1E1E1E" />
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Nota Seguimiento 2" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <Entry x:Name="seguimiento2Entry" Keyboard="Numeric" Placeholder="0.1 - 10" TextColor="#1E1E1E" BackgroundColor="Transparent" Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="Examen 2" Style="{StaticResource FieldLabelStyle}" />
+                            <Frame Style="{StaticResource ValueFrameStyle}">
+                                <Entry x:Name="examen2Entry" Keyboard="Numeric" Placeholder="0.1 - 10" TextColor="#1E1E1E" BackgroundColor="Transparent" Margin="12,0" />
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <Label Text="Nota Parcial 2 = (Seguimiento2 * 0.3) + (Examen2 * 0.2)" FontSize="12" TextColor="#4B4B4F" />
+                        <Label x:Name="partialTwoResultLabel" Text="0.00" FontSize="18" FontAttributes="Bold" TextColor="#5C2D91" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="summaryCard" Style="{StaticResource CardStyle}">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Resumen final" FontSize="18" FontAttributes="Bold" TextColor="#1E1E1E" />
+
+                        <Label x:Name="finalResultLabel" Text="Nota Final: 0.00" FontSize="20" FontAttributes="Bold" TextColor="#1E1E1E" />
+                        <Border x:Name="statusBorder" Padding="12,10" StrokeThickness="0" BackgroundColor="#E9E9F3" StrokeShape="RoundRectangle 12">
+                            <Label x:Name="statusLabel" Text="Estado: -" FontSize="16" FontAttributes="Bold" TextColor="#1E1E1E" />
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button
+                    x:Name="calculateButton"
+                    Text="Calcular notas"
+                    BackgroundColor="#7B29A6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="16"
+                    HeightRequest="54"
+                    Clicked="OnCalculateClicked" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
